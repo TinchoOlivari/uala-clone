@@ -1,17 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flare_flutter/flare_actor.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
+  SplashScreen({Key key}) : super(key: key);
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
       painter: ShapesPainter(),
-      child: Container(
-        child: Column(),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: <Widget>[
+          Center(
+              child: Image(image: AssetImage('lib/assets/uala-logo.png'), width: 120)
+          ),
+          Container(
+            height: 80,
+            child: FlareActor(
+              'lib/assets/dots.flr',
+              animation: 'dots',
+            ),
+          ),
+        ],
       ),
     );
   }
 }
-
 class ShapesPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -27,9 +46,10 @@ class ShapesPainter extends CustomPainter {
     paint.color = const Color(0xffeff3fe);
     var path = Path();
 
-    path.moveTo(size.width * 0.8, size.height);
+    path.moveTo(size.width * 0.78, size.height);
     path.quadraticBezierTo(
-        size.width * 0.9, size.height * 0.92, size.width, size.height * 0.75);
+        size.width * 0.93, size.height * 0.92,
+        size.width, size.height * 0.77);
 
     path.lineTo(size.width, size.height);
     path.lineTo(size.width * 0.75, size.height);
