@@ -111,6 +111,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 )),
           ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Movimientos',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500, color: Colors.black54),
+                  ),
+                  IconButton(
+                      icon: Icon(Icons.tune, color: Colors.blue),
+                      onPressed: null),
+                ],
+              ),
+            ),
+          ),
+          Movimiento(
+            person: 'Tomiregis',
+            type: 1,
+            date: '20',
+            amount: 1,
+          ),
         ],
       ),
     );
@@ -153,4 +177,66 @@ class ShapesPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
+class Movimiento extends StatefulWidget {
+  Movimiento(
+      {Key key,
+      @required this.person,
+      @required this.type,
+      @required this.date,
+      @required this.amount})
+      : super(key: key);
+
+  final String person;
+  final int type; //0 Enviada - 1 Recibida - 2 Invertida
+  final String date;
+  final double amount;
+
+  @override
+  MovimientoState createState() => MovimientoState();
+}
+
+class MovimientoState extends State<Movimiento> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+      child: Container(
+        child: Row(
+          children: <Widget>[
+            Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Image(
+                    image: AssetImage(widget.type == 0
+                        ? 'lib/assets/flechas-arriba.png'
+                        : widget.type == 1
+                            ? 'lib/assets/flechas-abajo.png'
+                            : 'lib/assets/invertido.png'),
+                    width: 35)),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  widget.person,
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15.5),
+                ),
+                Text(
+                  widget.type == 0
+                      ? 'Transferencia enviada'
+                      : widget.type == 1
+                          ? 'Transferencia recibida'
+                          : 'Inversiones',
+                  style: TextStyle(color: Colors.black38),
+                )
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
