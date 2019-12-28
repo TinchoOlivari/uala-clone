@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
   onDoneLoading() async {
     Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => MyHomePage(title: 'Uala',))
+        MaterialPageRoute(builder: (context) => MyHomePage())
     );
   }
 
