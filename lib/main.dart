@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
           child: child,
         );
       },
-      title: 'Flutter Demo',
+      title: 'Uala',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

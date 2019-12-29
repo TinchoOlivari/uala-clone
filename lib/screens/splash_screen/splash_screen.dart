@@ -11,8 +11,8 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
-
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   AnimationController controller;
   Animation<double> animation;
 
@@ -28,11 +28,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   }
 
   onDoneLoading() async {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => MyHomePage())
-    );
+    Navigator.of(context)
+        .pushReplacement(MaterialPageRoute(builder: (context) => MyHomePage()));
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +42,8 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
           alignment: Alignment.bottomCenter,
           children: <Widget>[
             Center(
-                child: Image(image: AssetImage('lib/assets/uala-logo.png'), width: 120)
-            ),
+                child: Image(
+                    image: AssetImage('lib/assets/uala-logo.png'), width: 120)),
             Container(
               height: 80,
               child: FlareActor(
@@ -77,8 +75,7 @@ class ShapesPainter extends CustomPainter {
 
     path.moveTo(size.width * 0.78, size.height);
     path.quadraticBezierTo(
-        size.width * 0.93, size.height * 0.92,
-        size.width, size.height * 0.77);
+        size.width * 0.93, size.height * 0.92, size.width, size.height * 0.77);
 
     path.lineTo(size.width, size.height);
     path.lineTo(size.width * 0.75, size.height);
