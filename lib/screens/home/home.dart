@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 80,
                       child: Center(
                         child: Text(
-                          "\$12,51",
+                          "\$1200,51",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 40,
@@ -62,25 +62,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                   Padding(
                                     padding: const EdgeInsets.only(right: 10),
                                     child: Icon(
-                                      Icons.add_circle_outline,
+                                      Icons.add,
                                       color: Colors.white,
-                                      size: 20,
+                                      size: 16,
                                     ),
                                   ),
                                   Text(
                                     "Carga",
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w400),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w300),
                                   ),
                                 ],
                               ),
                             ),
                             VerticalDivider(
                               color: Colors.white,
-                              width: 5,
-                              thickness: 1.5,
+                              width: 4,
+                              thickness: 1.2,
                             ),
                             FlatButton(
                               onPressed: null,
@@ -91,15 +91,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: Icon(
                                       Icons.show_chart,
                                       color: Colors.white,
-                                      size: 20,
+                                      size: 16,
                                     ),
                                   ),
                                   Text(
                                     "Inversiones",
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w400),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w300),
                                   ),
                                 ],
                               ),
@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
             child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -129,12 +129,132 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
+          Movimiento(title: 'Tomiregis', type: 1, date: '19/12', amount: 0.01),
           Movimiento(
-            person: 'Tomiregis',
-            type: 1,
-            date: '20',
-            amount: 1,
+              title: 'Emmanuelcolque', type: 1, date: '19/12', amount: 12.50),
+          Movimiento(title: 'Tomyreg_09', type: 0, date: '19/12', amount: 7.15),
+          Movimiento(
+              title: 'Plata Liberada', type: 2, date: '16/12', amount: 1),
+          Movimiento(
+              title: 'Plata Liberada', type: 2, date: '16/12', amount: 6.15),
+          Movimiento(
+              title: 'Plata Invertida', type: 3, date: '03/12', amount: 75.33),
+          Movimiento(title: 'Tomiregis', type: 1, date: '19/12', amount: 0.01),
+          Movimiento(
+              title: 'Emmanuelcolque', type: 1, date: '19/12', amount: 12.50),
+          Movimiento(title: 'Tomyreg_09', type: 0, date: '19/12', amount: 7.15),
+          Movimiento(
+              title: 'Plata Liberada', type: 2, date: '16/12', amount: 1),
+          Movimiento(
+              title: 'Plata Liberada', type: 2, date: '16/12', amount: 6.15),
+          Movimiento(
+              title: 'Plata Invertida', type: 3, date: '03/12', amount: 75.33),
+        ],
+      ),
+    );
+  }
+}
+
+class Movimiento extends StatefulWidget {
+  Movimiento(
+      {Key key,
+      @required this.title,
+      @required this.type,
+      @required this.date,
+      @required this.amount})
+      : super(key: key);
+
+  final String title;
+  final int type; //0 Enviada - 1 Recibida - 2 Ret de inversion - 3 Invertida
+  final String date;
+  final double amount;
+
+  @override
+  MovimientoState createState() => MovimientoState();
+}
+
+class MovimientoState extends State<Movimiento> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+            child: Container(
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Image(
+                          image: AssetImage(widget.type == 0
+                              ? 'lib/assets/flechas-arriba.png'
+                              : widget.type == 1
+                                  ? 'lib/assets/flechas-abajo.png'
+                                  : 'lib/assets/invertido.png'),
+                          width: 35)),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          widget.title,
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16),
+                        ),
+                        Text(
+                          widget.type == 0
+                              ? 'Transferencia enviada'
+                              : widget.type == 1
+                                  ? 'Transferencia recibida'
+                                  : 'Inversiones',
+                          style: TextStyle(color: Colors.black38),
+                        )
+                      ],
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      widget.type == 1
+                          ? Text('+\$' + widget.amount.toString(),
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500))
+                          : widget.type == 0
+                              ? Text('\$' + widget.amount.toString(),
+                                  style: TextStyle(
+                                      color: Colors.black45,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500))
+                              : widget.type == 2
+                                  ? Text('+\$' + widget.amount.toString(),
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500))
+                                  : Text('\$' + widget.amount.toString(),
+                                      style: TextStyle(
+                                          color: Colors.black45,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500)),
+                      Text(widget.date,
+                          style: TextStyle(
+                            color: Colors.black45,
+                            fontSize: 14,
+                          ))
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
+          Divider(
+            thickness: 0.8,
+          )
         ],
       ),
     );
@@ -177,66 +297,4 @@ class ShapesPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
-}
-
-class Movimiento extends StatefulWidget {
-  Movimiento(
-      {Key key,
-      @required this.person,
-      @required this.type,
-      @required this.date,
-      @required this.amount})
-      : super(key: key);
-
-  final String person;
-  final int type; //0 Enviada - 1 Recibida - 2 Invertida
-  final String date;
-  final double amount;
-
-  @override
-  MovimientoState createState() => MovimientoState();
-}
-
-class MovimientoState extends State<Movimiento> {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-      child: Container(
-        child: Row(
-          children: <Widget>[
-            Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: Image(
-                    image: AssetImage(widget.type == 0
-                        ? 'lib/assets/flechas-arriba.png'
-                        : widget.type == 1
-                            ? 'lib/assets/flechas-abajo.png'
-                            : 'lib/assets/invertido.png'),
-                    width: 35)),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  widget.person,
-                  style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15.5),
-                ),
-                Text(
-                  widget.type == 0
-                      ? 'Transferencia enviada'
-                      : widget.type == 1
-                          ? 'Transferencia recibida'
-                          : 'Inversiones',
-                  style: TextStyle(color: Colors.black38),
-                )
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }
