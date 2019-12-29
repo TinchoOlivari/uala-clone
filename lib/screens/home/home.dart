@@ -126,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
               child: Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -205,7 +205,7 @@ class MovimientoState extends State<Movimiento> {
       child: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
             child: Container(
               child: Row(
                 children: <Widget>[
@@ -279,6 +279,7 @@ class MovimientoState extends State<Movimiento> {
           ),
           Divider(
             thickness: 0.8,
+            height: 0,
           )
         ],
       ),
