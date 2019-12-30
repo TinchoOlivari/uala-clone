@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Padding(
                                       padding: const EdgeInsets.only(right: 10),
                                       child: Icon(
-                                        Icons.show_chart,
+                                        Icons.timeline,
                                         color: Colors.white,
                                         size: 16,
                                       ),

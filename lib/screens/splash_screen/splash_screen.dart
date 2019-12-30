@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/animation.dart';
-import 'package:uala_clone/screens/home/home.dart';
+import 'package:uala_clone/main.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key}) : super(key: key);
@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen>
 
   onDoneLoading() async {
     Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (context) => MyHomePage()));
+        .pushReplacement(MaterialPageRoute(builder: (context) => App()));
   }
 
   @override
