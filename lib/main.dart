@@ -14,7 +14,7 @@ class AppEntry extends StatelessWidget {
             child: child,
           );
         },
-        title: 'Uala',
+        title: 'Ualá',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
