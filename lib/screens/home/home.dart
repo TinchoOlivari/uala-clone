@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.tonality),
+            icon: const Icon(Icons.pie_chart_outlined),
             tooltip: 'Next choice',
             onPressed: () {},
           ),

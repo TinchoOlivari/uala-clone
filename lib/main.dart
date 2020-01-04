@@ -176,7 +176,35 @@ class _AppState extends State<App> {
                         iconData: Icons.insert_drive_file,
                         index: 3,
                       ),
+                      CustomListTile(
+                        title: 'Inversiones',
+                        iconData: Icons.timeline,
+                      ),
+                      CustomListTile(
+                        title: 'Analisis de gastos',
+                        iconData: Icons.pie_chart_outlined,
+                      ),
                     ],
+                  ),
+                  Divider(
+                    color: Colors.white12,
+                    thickness: 1,
+                  ),
+                  CustomListTile(
+                    title: 'Invitar a un amigo',
+                    iconData: Icons.share,
+                  ),
+                  CustomListTile(
+                    title: 'Ayuda',
+                    iconData: Icons.help_outline,
+                  ),
+                  CustomListTile(
+                    title: 'Configuración',
+                    iconData: Icons.settings,
+                  ),
+                  CustomListTile(
+                    title: 'Cerrar',
+                    iconData: Icons.exit_to_app,
                   ),
                 ],
               ),
@@ -220,7 +248,7 @@ class DrawerPainter extends CustomPainter {
 }
 
 class CustomListTile extends StatelessWidget {
-  CustomListTile({this.index, this.iconData, this.title});
+  CustomListTile({this.index, @required this.iconData, @required this.title});
 
   final int index;
   final IconData iconData;
@@ -233,6 +261,7 @@ class CustomListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 17.5),
         decoration: BoxDecoration(color: Colors.white24),
         child: ListTile(
+          dense: true,
           contentPadding: EdgeInsets.all(0),
           title: Text(title,
               style: TextStyle(
@@ -250,6 +279,7 @@ class CustomListTile extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.symmetric(horizontal: 17.5),
         child: ListTile(
+          dense: true,
           contentPadding: EdgeInsets.all(0),
           title: Text(title,
               style: TextStyle(
