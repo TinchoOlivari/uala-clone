@@ -85,6 +85,15 @@ class _AppState extends State<App> {
         selectedLabelStyle: TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
         unselectedLabelStyle: TextStyle(fontSize: 12),
       ),
+        drawer: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.787,
+          child: Drawer(
+            child: CustomPaint(
+              painter: DrawerPainter(),
+              child: Container(),
+            ),
+          ),
+        ),
     );
   }
 }
@@ -96,3 +105,26 @@ class MyBehavior extends ScrollBehavior {
     return child;
   }
 }
+
+class DrawerPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint();
+
+    paint.color = const Color(0xff7998fe);
+    var rect = Rect.fromLTWH(0, 0, size.width, size.height);
+    canvas.drawRect(rect, paint);
+    canvas.clipRect(rect);
+
+    paint.color = const Color(0xFFFF686B);
+    var circle1 = Offset(size.width * 0.103, size.height * 0.02); //(35,15)
+    canvas.drawCircle(circle1, 84.2, paint);
+
+    var circle2 = Offset(size.width * 1.044, size.height * 0.994); //(354, 711.24)
+    canvas.drawCircle(circle2, 171, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
