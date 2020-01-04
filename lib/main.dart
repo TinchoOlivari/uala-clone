@@ -30,9 +30,9 @@ class App extends StatefulWidget {
   _AppState createState() => _AppState();
 }
 
-class _AppState extends State<App> {
-  int _selectedIndex = 0;
+int _selectedIndex = 0;
 
+class _AppState extends State<App> {
   static List<Widget> _widgetOptions = <Widget>[
     MyHomePage(),
     Text(
@@ -93,57 +93,91 @@ class _AppState extends State<App> {
           child: CustomPaint(
             painter: DrawerPainter(),
             child: Container(
-              margin: EdgeInsets.symmetric(vertical: 25, horizontal: 17.5),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Stack(
-                    children: <Widget>[
-                      Positioned(
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                          onPressed: null,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right: 25),
-                        child: CircleAvatar(radius: 35),
-                      ),
-                      Container(
-                        child: Text(
-                          'Martín Tomas Olivari Spada',
-                          style: TextStyle(fontSize: 20, color: Colors.white),
-                        ),
-                        width: 200,
-                      )
-                    ],
-                  ),
                   Padding(
-                    padding: EdgeInsets.only(left: 95),
-                    child: RaisedButton(
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: BorderSide(color: Colors.white,width: 1.5),),
-                      onPressed: () {},
-                      color: Colors.transparent,
-                      textColor: Colors.white,
-                      child: Text('Ver perfil',
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w400)),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 25, horizontal: 17.5),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Stack(
+                          children: <Widget>[
+                            Positioned(
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.close,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                                onPressed: null,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(right: 25),
+                              child: CircleAvatar(radius: 35),
+                            ),
+                            Container(
+                              child: Text(
+                                'Martín Tomas Olivari Spada',
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.white),
+                              ),
+                              width: 200,
+                            )
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 95),
+                          child: RaisedButton(
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.shrinkWrap,
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.white, width: 1.5),
+                            ),
+                            onPressed: () {},
+                            color: Colors.transparent,
+                            textColor: Colors.white,
+                            child: Text('Ver perfil',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w400)),
+                          ),
+                        )
+                      ],
                     ),
-                  )
+                  ),
+                  Column(
+                    children: <Widget>[
+                      CustomListTile(
+                        title: 'Inicio',
+                        iconData: Icons.home,
+                        index: 0,
+                      ),
+                      CustomListTile(
+                        title: 'Transferencias',
+                        iconData: Icons.swap_vert,
+                        index: 1,
+                      ),
+                      CustomListTile(
+                        title: 'Tarjeta',
+                        iconData: Icons.credit_card,
+                        index: 2,
+                      ),
+                      CustomListTile(
+                        title: 'Pagos',
+                        iconData: Icons.insert_drive_file,
+                        index: 3,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -183,4 +217,52 @@ class DrawerPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
+class CustomListTile extends StatelessWidget {
+  CustomListTile({this.index, this.iconData, this.title});
+
+  final int index;
+  final IconData iconData;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    if (index == _selectedIndex) {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 17.5),
+        decoration: BoxDecoration(color: Colors.white24),
+        child: ListTile(
+          contentPadding: EdgeInsets.all(0),
+          title: Text(title,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w400)),
+          leading: Icon(
+            iconData,
+            size: 25,
+            color: Colors.white,
+          ),
+        ),
+      );
+    } else {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 17.5),
+        child: ListTile(
+          contentPadding: EdgeInsets.all(0),
+          title: Text(title,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w400)),
+          leading: Icon(
+            iconData,
+            size: 25,
+            color: Colors.white,
+          ),
+        ),
+      );
+    }
+  }
 }
