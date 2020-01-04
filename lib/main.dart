@@ -82,19 +82,74 @@ class _AppState extends State<App> {
         type: BottomNavigationBarType.fixed,
         iconSize: 23,
         selectedItemColor: Colors.blue,
-        unselectedIconTheme: IconThemeData(color: Colors.blue,size: 26),
-        selectedLabelStyle: TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
+        unselectedIconTheme: IconThemeData(color: Colors.blue, size: 26),
+        selectedLabelStyle:
+            TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
         unselectedLabelStyle: TextStyle(fontSize: 12),
       ),
-        drawer: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.787,
-          child: Drawer(
-            child: CustomPaint(
-              painter: DrawerPainter(),
-              child: Container(),
+      drawer: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.787,
+        child: Drawer(
+          child: CustomPaint(
+            painter: DrawerPainter(),
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: 25, horizontal: 17.5),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Stack(
+                    children: <Widget>[
+                      Positioned(
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.close,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                          onPressed: null,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(right: 25),
+                        child: CircleAvatar(radius: 35),
+                      ),
+                      Container(
+                        child: Text(
+                          'Martín Tomas Olivari Spada',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                        width: 200,
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 95),
+                    child: RaisedButton(
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(color: Colors.white,width: 1.5),),
+                      onPressed: () {},
+                      color: Colors.transparent,
+                      textColor: Colors.white,
+                      child: Text('Ver perfil',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w400)),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
+      ),
     );
   }
 }
@@ -121,11 +176,11 @@ class DrawerPainter extends CustomPainter {
     var circle1 = Offset(size.width * 0.103, size.height * 0.02); //(35,15)
     canvas.drawCircle(circle1, 84.2, paint);
 
-    var circle2 = Offset(size.width * 1.044, size.height * 0.994); //(354, 711.24)
+    var circle2 =
+        Offset(size.width * 1.044, size.height * 0.994); //(354, 711.24)
     canvas.drawCircle(circle2, 171, paint);
   }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
-

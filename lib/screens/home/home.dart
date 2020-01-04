@@ -26,7 +26,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Image(image: AssetImage('lib/assets/uala-text.png'), width: 50),
         leading: IconButton(
           icon: const Icon(Icons.menu),
-          onPressed: () {},
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
         ),
         actions: <Widget>[
           IconButton(
