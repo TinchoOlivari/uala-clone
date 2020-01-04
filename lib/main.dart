@@ -120,7 +120,14 @@ class _AppState extends State<App> {
                           children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.only(right: 25),
-                              child: CircleAvatar(radius: 35),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.white,
+                                  radius: 35,
+                                  child: Icon(
+                                    Icons.person,
+                                    size: 50,
+                                    color: Colors.grey,
+                                  )),
                             ),
                             Container(
                               child: Text(
