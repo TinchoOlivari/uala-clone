@@ -263,39 +263,55 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (index == _selectedIndex) {
-      return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 17.5),
-        decoration: BoxDecoration(color: Colors.white24),
-        child: ListTile(
-          dense: true,
-          contentPadding: EdgeInsets.all(0),
-          title: Text(title,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w400)),
-          leading: Icon(
-            iconData,
-            size: 25,
-            color: Colors.white,
+      return Material(
+        color: Colors.transparent,
+        child: InkWell(
+          highlightColor: Colors.white12,
+          splashColor: Colors.transparent,
+          onTap: () {},
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 17.5),
+            decoration: BoxDecoration(color: Colors.white24),
+            child: ListTile(
+              dense: true,
+              contentPadding: EdgeInsets.all(0),
+              title: Text(title,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400)),
+              leading: Icon(
+                iconData,
+                size: 25,
+                color: Colors.white,
+              ),
+            ),
           ),
         ),
       );
     } else {
-      return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 17.5),
-        child: ListTile(
-          dense: true,
-          contentPadding: EdgeInsets.all(0),
-          title: Text(title,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w400)),
-          leading: Icon(
-            iconData,
-            size: 25,
-            color: Colors.white,
+      return Material(
+        color: Colors.transparent,
+        child: InkWell(
+          highlightColor: Colors.white12,
+          splashColor: Colors.transparent,
+          onTap: () {},
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 17.5),
+            child: ListTile(
+              dense: true,
+              contentPadding: EdgeInsets.all(0),
+              title: Text(title,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400)),
+              leading: Icon(
+                iconData,
+                size: 25,
+                color: Colors.white,
+              ),
+            ),
           ),
         ),
       );
