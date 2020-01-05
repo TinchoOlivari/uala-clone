@@ -91,8 +91,7 @@ class _AppState extends State<App> {
         width: MediaQuery.of(context).size.width * 0.787,
         child: Drawer(
           child: CustomPaint(
-            painter: DrawerPainter(),
-            child: Container(
+              painter: DrawerPainter(),
               child: Column(
                 children: <Widget>[
                   Padding(
@@ -111,7 +110,9 @@ class _AppState extends State<App> {
                                   color: Colors.white,
                                   size: 20,
                                 ),
-                                onPressed: null,
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
                               ),
                             ),
                           ],
@@ -121,7 +122,7 @@ class _AppState extends State<App> {
                             Padding(
                               padding: const EdgeInsets.only(right: 25),
                               child: CircleAvatar(
-                                backgroundColor: Colors.white,
+                                  backgroundColor: Colors.white,
                                   radius: 35,
                                   child: Icon(
                                     Icons.person,
@@ -214,9 +215,7 @@ class _AppState extends State<App> {
                     iconData: Icons.exit_to_app,
                   ),
                 ],
-              ),
-            ),
-          ),
+              )),
         ),
       ),
     );
