@@ -9,12 +9,6 @@ class AppEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        builder: (context, child) {
-          return ScrollConfiguration(
-            behavior: MyBehavior(),
-            child: child,
-          );
-        },
         title: 'Ualá',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -110,14 +104,4 @@ class _AppState extends State<App> {
     );
   }
 }
-
-class MyBehavior extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
-    return child;
-  }
-}
-
-
 

@@ -43,139 +43,156 @@ class _MyHomePageState extends State<MyHomePage> {
         displacement: 10,
         key: refreshKey,
         onRefresh: refreshList,
-        child: ListView(
-          children: [
-            CustomPaint(
-              painter: ShapesPainter(),
-              child: Container(
-                  height: 160,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+        child: ScrollConfiguration(
+          behavior: MyBehavior(),
+          child: ListView(
+            children: [
+              CustomPaint(
+                painter: ShapesPainter(),
+                child: Container(
+                    height: 160,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          height: 80,
+                          child: Center(
+                            child: Text(
+                              "\$1200,51",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.w300),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 30,
+                          child: Center(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                FlatButton(
+                                  onPressed: null,
+                                  child: Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 10),
+                                        child: Icon(
+                                          Icons.add,
+                                          color: Colors.white,
+                                          size: 16,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Carga",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                VerticalDivider(
+                                  color: Colors.white,
+                                  width: 4,
+                                  thickness: 1.2,
+                                ),
+                                FlatButton(
+                                  onPressed: null,
+                                  child: Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 10),
+                                        child: Icon(
+                                          Icons.timeline,
+                                          color: Colors.white,
+                                          size: 16,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Inversiones",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    )),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Container(
-                        height: 80,
-                        child: Center(
-                          child: Text(
-                            "\$1200,51",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 40,
-                                fontWeight: FontWeight.w300),
-                          ),
-                        ),
+                      Text(
+                        'Movimientos',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, color: Colors.black54),
                       ),
-                      Container(
-                        height: 30,
-                        child: Center(
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              FlatButton(
-                                onPressed: null,
-                                child: Row(
-                                  children: <Widget>[
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 10),
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                        size: 16,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Carga",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w300),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              VerticalDivider(
-                                color: Colors.white,
-                                width: 4,
-                                thickness: 1.2,
-                              ),
-                              FlatButton(
-                                onPressed: null,
-                                child: Row(
-                                  children: <Widget>[
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 10),
-                                      child: Icon(
-                                        Icons.timeline,
-                                        color: Colors.white,
-                                        size: 16,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Inversiones",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w300),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
+                      IconButton(
+                          icon: Icon(Icons.tune, color: Colors.blue),
+                          onPressed: null),
                     ],
-                  )),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      'Movimientos',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500, color: Colors.black54),
-                    ),
-                    IconButton(
-                        icon: Icon(Icons.tune, color: Colors.blue),
-                        onPressed: null),
-                  ],
+                  ),
                 ),
               ),
-            ),
-            Movimiento(
-                title: 'Tomiregis', type: 1, date: '19/12', amount: 0.01),
-            Movimiento(
-                title: 'Emmanuelcolque', type: 1, date: '19/12', amount: 12.50),
-            Movimiento(
-                title: 'Tomyreg_09', type: 0, date: '19/12', amount: 7.15),
-            Movimiento(
-                title: 'Plata Liberada', type: 2, date: '16/12', amount: 1),
-            Movimiento(
-                title: 'Plata Liberada', type: 2, date: '16/12', amount: 6.15),
-            Movimiento(
-                title: 'Plata Invertida',
-                type: 3,
-                date: '03/12',
-                amount: 75.33),
-            Movimiento(
-                title: 'Tomiregis', type: 1, date: '19/12', amount: 0.01),
-            Movimiento(
-                title: 'Emmanuelcolque', type: 1, date: '19/12', amount: 12.50),
-            Movimiento(
-                title: 'Tomyreg_09', type: 0, date: '19/12', amount: 7.15),
-            Movimiento(
-                title: 'Plata Liberada', type: 2, date: '16/12', amount: 1),
-            Movimiento(
-                title: 'Plata Liberada', type: 2, date: '16/12', amount: 6.15),
-            Movimiento(
-                title: 'Plata Invertida',
-                type: 3,
-                date: '03/12',
-                amount: 75.33),
-          ],
+              Movimiento(
+                  title: 'Tomiregis', type: 1, date: '19/12', amount: 0.01),
+              Movimiento(
+                  title: 'Emmanuelcolque',
+                  type: 1,
+                  date: '19/12',
+                  amount: 12.50),
+              Movimiento(
+                  title: 'Tomyreg_09', type: 0, date: '19/12', amount: 7.15),
+              Movimiento(
+                  title: 'Plata Liberada', type: 2, date: '16/12', amount: 1),
+              Movimiento(
+                  title: 'Plata Liberada',
+                  type: 2,
+                  date: '16/12',
+                  amount: 6.15),
+              Movimiento(
+                  title: 'Plata Invertida',
+                  type: 3,
+                  date: '03/12',
+                  amount: 75.33),
+              Movimiento(
+                  title: 'Tomiregis', type: 1, date: '19/12', amount: 0.01),
+              Movimiento(
+                  title: 'Emmanuelcolque',
+                  type: 1,
+                  date: '19/12',
+                  amount: 12.50),
+              Movimiento(
+                  title: 'Tomyreg_09', type: 0, date: '19/12', amount: 7.15),
+              Movimiento(
+                  title: 'Plata Liberada', type: 2, date: '16/12', amount: 1),
+              Movimiento(
+                  title: 'Plata Liberada',
+                  type: 2,
+                  date: '16/12',
+                  amount: 6.15),
+              Movimiento(
+                  title: 'Plata Invertida',
+                  type: 3,
+                  date: '03/12',
+                  amount: 75.33),
+            ],
+          ),
         ),
       ),
     );
@@ -326,3 +343,14 @@ class ShapesPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
+
+
+class MyBehavior extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
+  }
+}
+
+
