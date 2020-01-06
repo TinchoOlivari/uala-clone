@@ -14,8 +14,8 @@ class CustomDrawer extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: 25, horizontal: 17.5),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 25, horizontal: 17.5),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,8 +52,7 @@ class CustomDrawer extends StatelessWidget {
                       Container(
                         child: Text(
                           'Martín Tomas Olivari Spada',
-                          style: TextStyle(
-                              fontSize: 20, color: Colors.white),
+                          style: TextStyle(fontSize: 20, color: Colors.white),
                         ),
                         width: 200,
                       )
@@ -62,22 +61,24 @@ class CustomDrawer extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 95),
                     child: RaisedButton(
-                      materialTapTargetSize:
-                      MaterialTapTargetSize.shrinkWrap,
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      splashColor: Colors.transparent,
+                      hoverColor: Colors.red,
+                      highlightColor: Colors.white54,
+                      focusElevation: 0,
+                      highlightElevation: 0,
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
-                        side:
-                        BorderSide(color: Colors.white, width: 1.5),
+                        side: BorderSide(color: Colors.white, width: 1.5),
                       ),
                       onPressed: () {},
                       color: Colors.transparent,
                       textColor: Colors.white,
                       child: Text('Ver perfil',
                           style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400)),
+                              fontSize: 16, fontWeight: FontWeight.w400)),
                     ),
                   )
                 ],
@@ -167,7 +168,7 @@ class DrawerPainter extends CustomPainter {
     canvas.drawCircle(circle1, 84.2, paint);
 
     var circle2 =
-    Offset(size.width * 1.044, size.height * 0.994); //(354, 711.24)
+        Offset(size.width * 1.044, size.height * 0.994); //(354, 711.24)
     canvas.drawCircle(circle2, 171, paint);
   }
 
