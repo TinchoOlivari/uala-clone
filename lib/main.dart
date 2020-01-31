@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uala_clone/screens/splash_screen/splash_screen.dart';
 import 'package:uala_clone/screens/home/home.dart';
 import 'package:uala_clone/parts/customDrawer.dart';
+import 'package:uala_clone/screens/transferencias/transferenciasPage.dart';
 
 void main() => runApp(AppEntry());
 
@@ -30,11 +31,7 @@ class _AppState extends State<App> {
 
   static List<Widget> _widgetOptions = <Widget>[
     MyHomePage(),
-    Center(
-      child: Text(
-        'Index 1',
-      ),
-    ),
+    TransferenciasPage(),
     Center(
       child: Text(
         'Index 2',
