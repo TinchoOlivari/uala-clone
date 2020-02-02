@@ -57,7 +57,7 @@ class ShapesPainter extends CustomPainter {
     final red_paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5
-      ..color = Colors.red;
+      ..color = Colors.red[200];
     var red_path = Path();
     red_path.addOval(
         Rect.fromLTWH(size.width * 0.545, size.height * 0.062, 12, 12));
@@ -73,11 +73,10 @@ class ShapesPainter extends CustomPainter {
     final grey_paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5
-      ..color = Colors.grey;
+      ..color = Colors.grey[400];
     var grey_path = Path();
     grey_path
         .addOval(Rect.fromLTWH(size.width * 0.26, size.height * 0.062, 12, 12));
-
     grey_path.arcTo(
         Rect.fromLTWH(size.width * 0.718, size.height * 0.094, 16, 16),
         degToRad(-180),
@@ -87,27 +86,23 @@ class ShapesPainter extends CustomPainter {
     final blue_paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5
-      ..color = Colors.blue;
+      ..color = Colors.blue[300];
     var blue_path = Path();
-
     blue_path.arcTo(
         Rect.fromLTWH(size.width * 0.283, size.height * 0.11, 25, 25),
         degToRad(-180),
         degToRad(90),
         true);
-
     blue_path.arcTo(
         Rect.fromLTWH(size.width * 0.4, size.height * 0.074, 15, 15),
         degToRad(-135),
         degToRad(180),
         true);
-
     blue_path.arcTo(
         Rect.fromLTWH(size.width * 0.605, size.height * 0.063, 23, 23),
         degToRad(0),
         degToRad(90),
         true);
-
     blue_path.arcTo(
         Rect.fromLTWH(size.width * 0.82, size.height * 0.052, 35, 35),
         degToRad(-180),
