@@ -37,6 +37,8 @@ class _TarjetaPageState extends State<TarjetaPage> {
 class ShapesPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
+    num degToRad(num deg) => deg * (3.14159265359 / 180.0);
+
     final paint = Paint()..color = Colors.blue;
     var statusbar_path = Path();
     statusbar_path.lineTo(0, 24);
@@ -52,32 +54,71 @@ class ShapesPainter extends CustomPainter {
     path.lineTo(size.width, 24);
     path.close();
 
-    final circles = Paint()
+    final red_paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5
       ..color = Colors.red;
-    var cricle_path = Path();
-    cricle_path.addOval(
+    var red_path = Path();
+    red_path.addOval(
         Rect.fromLTWH(size.width * 0.545, size.height * 0.062, 12, 12));
-    cricle_path
+    red_path
         .addOval(Rect.fromLTWH(size.width * 0.84, size.height * 0.060, 21, 21));
-    cricle_path
+    red_path
         .addOval(Rect.fromLTWH(size.width * 0.73, size.height * 0.1, 16, 16));
-    cricle_path
+    red_path
         .addOval(Rect.fromLTWH(size.width * 0.30, size.height * 0.12, 14, 14));
+    red_path.arcTo(Rect.fromLTWH(size.width * 0.13, size.height * 0.12, 14, 14),
+        degToRad(-90), degToRad(90), true);
 
-    final circle_red = Paint()
+    final grey_paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5
       ..color = Colors.grey;
-    var cricle_path_red = Path();
-    cricle_path_red
-        .addOval(Rect.fromLTWH(size.width * 0.26, size.height * 0.065, 12, 12));
+    var grey_path = Path();
+    grey_path
+        .addOval(Rect.fromLTWH(size.width * 0.26, size.height * 0.062, 12, 12));
+
+    grey_path.arcTo(
+        Rect.fromLTWH(size.width * 0.718, size.height * 0.094, 16, 16),
+        degToRad(-180),
+        degToRad(90),
+        true);
+
+    final blue_paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5
+      ..color = Colors.blue;
+    var blue_path = Path();
+
+    blue_path.arcTo(
+        Rect.fromLTWH(size.width * 0.283, size.height * 0.11, 25, 25),
+        degToRad(-180),
+        degToRad(90),
+        true);
+
+    blue_path.arcTo(
+        Rect.fromLTWH(size.width * 0.4, size.height * 0.074, 15, 15),
+        degToRad(-135),
+        degToRad(180),
+        true);
+
+    blue_path.arcTo(
+        Rect.fromLTWH(size.width * 0.605, size.height * 0.063, 23, 23),
+        degToRad(0),
+        degToRad(90),
+        true);
+
+    blue_path.arcTo(
+        Rect.fromLTWH(size.width * 0.82, size.height * 0.052, 35, 35),
+        degToRad(-180),
+        degToRad(-90),
+        true);
 
     canvas.drawPath(statusbar_path, paint);
     canvas.drawPath(path, paint2);
-    canvas.drawPath(cricle_path, circles);
-    canvas.drawPath(cricle_path_red, circle_red);
+    canvas.drawPath(red_path, red_paint);
+    canvas.drawPath(grey_path, grey_paint);
+    canvas.drawPath(blue_path, blue_paint);
   }
 
   @override
