@@ -14,21 +14,44 @@ class _TarjetaPageState extends State<TarjetaPage> {
       children: <Widget>[
         CustomPaint(painter: ShapesPainter(), child: Container()),
         Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
             backgroundColor: Colors.transparent,
-            elevation: 0,
-            leading: IconButton(
-              icon: const Icon(
-                Icons.menu,
-                color: Colors.black54,
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: IconButton(
+                icon: const Icon(
+                  Icons.menu,
+                  color: Colors.black54,
+                ),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
               ),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
             ),
-          ),
-        ),
+            body: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Row(
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
+                          Material(
+                            elevation: 8,
+                            shadowColor: Colors.black54,
+                            borderRadius: BorderRadius.circular(7),
+                            child: Image(
+                                image: AssetImage('lib/assets/tarjeta-uala.png'),
+                                width: 90),
+                          ),
+                        ],
+                      ),
+                    ],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                )
+              ],
+            )),
       ],
     );
   }
