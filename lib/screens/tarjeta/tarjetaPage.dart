@@ -10,48 +10,92 @@ class TarjetaPage extends StatefulWidget {
 class _TarjetaPageState extends State<TarjetaPage> {
   @override
   Widget build(BuildContext context) {
+    bool isSwitched = false;
+
     return Stack(
       children: <Widget>[
         CustomPaint(painter: ShapesPainter(), child: Container()),
         Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
             backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: IconButton(
-                icon: const Icon(
-                  Icons.menu,
-                  color: Colors.black54,
-                ),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
+            elevation: 0,
+            leading: IconButton(
+              icon: const Icon(
+                Icons.menu,
+                color: Colors.black54,
               ),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
             ),
-            body: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Row(
-                    children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          Material(
-                            elevation: 8,
-                            shadowColor: Colors.black54,
-                            borderRadius: BorderRadius.circular(7),
-                            child: Image(
-                                image: AssetImage('lib/assets/tarjeta-uala.png'),
-                                width: 90),
+          ),
+          body: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 12, bottom: 28),
+                child: Row(
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Material(
+                          elevation: 8,
+                          shadowColor: Colors.black54,
+                          borderRadius: BorderRadius.circular(7),
+                          child: Image(
+                              image: AssetImage('lib/assets/tarjeta-uala.png'),
+                              width: 86),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 26, bottom: 6),
+                          child: Text(
+                            'Tu tarjeta Ualá',
+                            style: TextStyle(fontSize: 22),
                           ),
-                        ],
-                      ),
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.center,
-                  ),
-                )
-              ],
-            )),
+                        ),
+                        Text(
+                          'Terminada en 5043',
+                          style: TextStyle(
+                            color: Colors.black54,
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text('Congelar', style: TextStyle(fontSize: 16)),
+                        Text(
+                          'Deshabilita temporalmente la cuenta.',
+                          style: TextStyle(
+                            color: Colors.black54,
+                          ),
+                        )
+                      ],
+                    ),
+                    Switch(
+                      value: isSwitched,
+                      onChanged: (e) {},
+                    ),
+                  ],
+                ),
+              ),
+              Divider(
+                thickness: 0.8,
+              )
+            ],
+          ),
+        ),
       ],
     );
   }
