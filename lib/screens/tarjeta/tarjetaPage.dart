@@ -92,7 +92,26 @@ class _TarjetaPageState extends State<TarjetaPage> {
               ),
               Divider(
                 thickness: 0.8,
-              )
+              ),
+              Opcion(
+                icon_path: 'lib/assets/mas.png',
+                title: 'Formas de Carga',
+                descripcion: 'Por transferencia o en efectivo',
+              ),
+              Opcion(
+                icon_path: 'lib/assets/candado.png',
+                title: 'Seguridad',
+              ),
+              Opcion(
+                icon_path: 'lib/assets/avion.png',
+                title: 'Formas de Carga',
+                descripcion: 'Usá tu tarjeta en cualquier lugar',
+              ),
+              Opcion(
+                icon_path: 'lib/assets/pesos-caja.png',
+                title: 'Cajeros cercanos',
+                descripcion: 'Podés retirar hasta \$2000 por día.',
+              ),
             ],
           ),
         ),
@@ -185,4 +204,65 @@ class ShapesPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
+class Opcion extends StatefulWidget {
+  Opcion({
+    Key key,
+    @required this.icon_path,
+    @required this.title,
+    this.descripcion,
+  }) : super(key: key);
+
+  final String icon_path;
+  final String title;
+  final String descripcion;
+
+  @override
+  OpcionState createState() => OpcionState();
+}
+
+class OpcionState extends State<Opcion> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
+          child: Container(
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: Image(image: AssetImage(widget.icon_path), width: 32),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        widget.title,
+                        style: TextStyle(
+                            fontSize: 16),
+                      ),
+                      widget.descripcion == null
+                          ? Container()
+                          : Text(
+                              widget.descripcion,
+                              style: TextStyle(color: Colors.black54),
+                            )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Divider(
+          thickness: 0.8,
+          height: 0,
+        )
+      ],
+    );
+  }
 }
