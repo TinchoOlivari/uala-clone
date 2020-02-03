@@ -36,7 +36,7 @@ class _AppState extends State<App> {
     TarjetaPage(),
     Center(
       child: Text(
-        'Index 3',
+        'Page 3',
       ),
     ),
   ];
