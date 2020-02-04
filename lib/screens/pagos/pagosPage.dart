@@ -112,11 +112,92 @@ class _PagosPageState extends State<PagosPage>
                         color: Colors.blue, fontWeight: FontWeight.w500))
               ],
             ),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 13),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Recarga(
+                    title: 'SUBE',
+                    color: Colors.blue,
+                  ),
+                  Recarga(
+                    title: 'Claro',
+                    color: Colors.red,
+                  ),
+                  Recarga(
+                    title: 'Movistar',
+                    color: Colors.green,
+                  ),
+                  Recarga(
+                    title: 'Personal',
+                    color: Colors.lightBlue,
+                  ),
+                  Recarga(
+                    title: 'Tuenti',
+                    color: Colors.blueAccent[800],
+                  ),
+                  Recarga(
+                    title: 'Nextel',
+                    color: Colors.deepOrange,
+                  ),
+                  Recarga(
+                    title: 'Directv',
+                    color: Colors.lightBlueAccent,
+                  ),
+                  Recarga(
+                    title: 'Antina',
+                    color: Colors.green,
+                  ),
+                  Recarga(
+                    title: 'GranDT',
+                    color: Colors.blue[700],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
       Container(color: Colors.green),
     ]);
+  }
+}
+
+class Recarga extends StatelessWidget {
+  Recarga({
+    Key key,
+    @required this.color,
+    @required this.title,
+  }) : super(key: key);
+
+  final Color color;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 72,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          CircleAvatar(child: Container(), backgroundColor: color),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              title,
+              maxLines: 2,
+              overflow: TextOverflow.clip,
+              style: TextStyle(color: Colors.black54),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
 
