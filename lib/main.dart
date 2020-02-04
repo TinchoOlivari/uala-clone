@@ -4,6 +4,7 @@ import 'package:uala_clone/screens/home/home.dart';
 import 'package:uala_clone/parts/customDrawer.dart';
 import 'package:uala_clone/screens/transferencias/transferenciasPage.dart';
 import 'package:uala_clone/screens/tarjeta/tarjetaPage.dart';
+import 'package:uala_clone/screens/pagos/pagosPage.dart';
 
 void main() => runApp(AppEntry());
 
@@ -34,11 +35,7 @@ class _AppState extends State<App> {
     MyHomePage(),
     TransferenciasPage(),
     TarjetaPage(),
-    Center(
-      child: Text(
-        'Page 3',
-      ),
-    ),
+    PagosPage(),
   ];
 
   void _onItemTapped(int index) {
