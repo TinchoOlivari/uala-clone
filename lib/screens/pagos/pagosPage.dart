@@ -97,6 +97,8 @@ class _PagosPageState extends State<PagosPage>
   Widget getTabBarPages() {
     return TabBarView(controller: tabController, children: <Widget>[
       Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
@@ -114,45 +116,45 @@ class _PagosPageState extends State<PagosPage>
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 13),
+            padding: const EdgeInsets.only(top: 13, left: 5, bottom: 10),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Recarga(
+                  TipoRecarga(
                     title: 'SUBE',
                     color: Colors.blue,
                   ),
-                  Recarga(
+                  TipoRecarga(
                     title: 'Claro',
                     color: Colors.red,
                   ),
-                  Recarga(
+                  TipoRecarga(
                     title: 'Movistar',
                     color: Colors.green,
                   ),
-                  Recarga(
+                  TipoRecarga(
                     title: 'Personal',
                     color: Colors.lightBlue,
                   ),
-                  Recarga(
+                  TipoRecarga(
                     title: 'Tuenti',
                     color: Colors.blueAccent[800],
                   ),
-                  Recarga(
+                  TipoRecarga(
                     title: 'Nextel',
                     color: Colors.deepOrange,
                   ),
-                  Recarga(
+                  TipoRecarga(
                     title: 'Directv',
                     color: Colors.lightBlueAccent,
                   ),
-                  Recarga(
+                  TipoRecarga(
                     title: 'Antina',
                     color: Colors.green,
                   ),
-                  Recarga(
+                  TipoRecarga(
                     title: 'GranDT',
                     color: Colors.blue[700],
                   ),
@@ -160,6 +162,32 @@ class _PagosPageState extends State<PagosPage>
               ),
             ),
           ),
+          Divider(
+            thickness: 0.8,
+            height: 30
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
+            child: Text('Últimas recargas', style: TextStyle(color: Colors.black54),),
+          ),
+          Expanded(
+            child: ListView(
+              children: <Widget>[
+                Recarga(
+                  title: 'Tuenti',
+                  type: 'Servicios',
+                  ammount: '190.0',
+                  date: '17/10/2019',
+                ),
+                Recarga(
+                  title: 'Tuenti',
+                  type: 'Servicios',
+                  ammount: '100.0',
+                  date: '17/10/2019',
+                ),
+              ],
+            ),
+          )
         ],
       ),
       Container(color: Colors.green),
@@ -167,8 +195,8 @@ class _PagosPageState extends State<PagosPage>
   }
 }
 
-class Recarga extends StatelessWidget {
-  Recarga({
+class TipoRecarga extends StatelessWidget {
+  TipoRecarga({
     Key key,
     @required this.color,
     @required this.title,
@@ -201,6 +229,63 @@ class Recarga extends StatelessWidget {
   }
 }
 
+class Recarga extends StatelessWidget {
+  Recarga({
+    Key key,
+    @required this.title,
+    @required this.type,
+    @required this.ammount,
+    @required this.date,
+  }) : super(key: key);
+
+  final String title;
+  final String type;
+  final String ammount;
+  final String date;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(title, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 2),
+                      child: Text(type, style: TextStyle(color: Colors.black54)),
+                    )
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Text('\$ $ammount ', style: TextStyle(fontSize: 16, color: Colors.black54)),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 2),
+                      child: Text(date, style: TextStyle(color: Colors.black54)),
+                    )
+                  ],
+                ),
+              ],
+            )
+        ),
+        Divider(
+            thickness: 0.8,
+            height: 20
+        ),
+      ],
+    );
+  }
+}
+
+
 class ShapesPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -228,3 +313,5 @@ class ShapesPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
+
+
