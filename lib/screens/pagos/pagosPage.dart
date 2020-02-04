@@ -96,7 +96,25 @@ class _PagosPageState extends State<PagosPage>
 
   Widget getTabBarPages() {
     return TabBarView(controller: tabController, children: <Widget>[
-      Container(color: Colors.transparent),
+      Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  'Recargas más usadas',
+                  style: TextStyle(color: Colors.black54),
+                ),
+                Text('Ver todas',
+                    style: TextStyle(
+                        color: Colors.blue, fontWeight: FontWeight.w500))
+              ],
+            ),
+          )
+        ],
+      ),
       Container(color: Colors.green),
     ]);
   }
@@ -117,9 +135,7 @@ class ShapesPainter extends CustomPainter {
     var path = Path();
     path.moveTo(0, size.height - 10);
     path.cubicTo(
-        size.width / 2, size.height,
-        size.width / 2, 80,
-        size.width, 80);
+        size.width / 2, size.height, size.width / 2, 80, size.width, 80);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
     path.close();
