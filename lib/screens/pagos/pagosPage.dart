@@ -200,11 +200,12 @@ class _PagosPageState extends State<PagosPage>
 
   Widget PagosTabPage() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+              padding: const EdgeInsets.only(top: 12, right: 20, left: 20, bottom: 18),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -219,7 +220,7 @@ class _PagosPageState extends State<PagosPage>
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -227,9 +228,12 @@ class _PagosPageState extends State<PagosPage>
                   Flexible(
                     child: Column(
                       children: <Widget>[
-                        Image(
-                            image: AssetImage('lib/assets/pesos-caja.png'),
-                            width: 50),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image(
+                              image: AssetImage('lib/assets/agua.png'),
+                              width: 40),
+                        ),
                         Text(
                           'Aguas',
                           overflow: TextOverflow.clip,
@@ -243,9 +247,12 @@ class _PagosPageState extends State<PagosPage>
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Image(
-                            image: AssetImage('lib/assets/pesos-caja.png'),
-                            width: 50),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image(
+                              image: AssetImage('lib/assets/banco.png'),
+                              width: 40),
+                        ),
                         Text(
                           'Ahorro y capitalizacion',
                           overflow: TextOverflow.clip,
@@ -258,9 +265,12 @@ class _PagosPageState extends State<PagosPage>
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        Image(
-                            image: AssetImage('lib/assets/pesos-caja.png'),
-                            width: 50),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image(
+                              image: AssetImage('lib/assets/ent-financiera.png'),
+                              width: 40),
+                        ),
                         Text(
                           'ARBA',
                           overflow: TextOverflow.clip,
@@ -273,9 +283,12 @@ class _PagosPageState extends State<PagosPage>
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        Image(
-                            image: AssetImage('lib/assets/pesos-caja.png'),
-                            width: 50),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image(
+                              image: AssetImage('lib/assets/banco.png'),
+                              width: 40),
+                        ),
                         Text(
                           'BBVA Convenios',
                           overflow: TextOverflow.clip,
@@ -286,8 +299,54 @@ class _PagosPageState extends State<PagosPage>
                   ),
                 ],
               ),
+            ),
+            Divider(
+              thickness: 0.5,
+              height: 30,
             )
           ],
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(30, 0, 30, 25),
+          child: Column(
+            children: <Widget>[
+              RaisedButton(
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.white54,
+                  focusElevation: 0,
+                  highlightElevation: 0,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(35),
+                  ),
+                  onPressed: () {},
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 52,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Icon(
+                            Icons.photo_camera,
+                            color: Colors.white,
+                            size: 25,
+                          ),
+                        ),
+                        Text(
+                          'Escanear factura',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
+                  )),
+            ],
+          ),
         ),
       ],
     );
