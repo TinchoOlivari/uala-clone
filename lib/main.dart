@@ -78,11 +78,11 @@ class _AppState extends State<App> {
             showUnselectedLabels: true,
             type: BottomNavigationBarType.fixed,
             iconSize: 23,
-            selectedItemColor: Colors.blue,
-            unselectedIconTheme: IconThemeData(color: Colors.blue, size: 26),
+            selectedItemColor: Colors.blue[600],
+            unselectedIconTheme: IconThemeData(color: Colors.blue[300], size: 26),
             selectedLabelStyle:
-                TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
-            unselectedLabelStyle: TextStyle(fontSize: 12),
+                TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+            unselectedLabelStyle: TextStyle(fontSize: 11),
           ),
           drawer: SizedBox(
             width: MediaQuery.of(context).size.width * 0.787,
