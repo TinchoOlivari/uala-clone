@@ -96,102 +96,201 @@ class _PagosPageState extends State<PagosPage>
 
   Widget getTabBarPages() {
     return TabBarView(controller: tabController, children: <Widget>[
-      Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+      RecargasTabPage(),
+      PagosTabPage(),
+    ]);
+  }
+
+  Widget RecargasTabPage() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'Recargas más usadas',
+                style: TextStyle(color: Colors.black54),
+              ),
+              Text('Ver todas',
+                  style: TextStyle(
+                      color: Colors.blue, fontWeight: FontWeight.w500))
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 13, left: 5, bottom: 10),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(
-                  'Recargas más usadas',
-                  style: TextStyle(color: Colors.black54),
+                TipoRecarga(
+                  title: 'SUBE',
+                  color: Colors.blue,
                 ),
-                Text('Ver todas',
-                    style: TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.w500))
+                TipoRecarga(
+                  title: 'Claro',
+                  color: Colors.red,
+                ),
+                TipoRecarga(
+                  title: 'Movistar',
+                  color: Colors.green,
+                ),
+                TipoRecarga(
+                  title: 'Personal',
+                  color: Colors.lightBlue,
+                ),
+                TipoRecarga(
+                  title: 'Tuenti',
+                  color: Colors.blueAccent[800],
+                ),
+                TipoRecarga(
+                  title: 'Nextel',
+                  color: Colors.deepOrange,
+                ),
+                TipoRecarga(
+                  title: 'Directv',
+                  color: Colors.lightBlueAccent,
+                ),
+                TipoRecarga(
+                  title: 'Antina',
+                  color: Colors.green,
+                ),
+                TipoRecarga(
+                  title: 'GranDT',
+                  color: Colors.blue[700],
+                ),
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 13, left: 5, bottom: 10),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
+        ),
+        Divider(thickness: 0.8, height: 30),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
+          child: Text(
+            'Últimas recargas',
+            style: TextStyle(color: Colors.black54),
+          ),
+        ),
+        Expanded(
+          child: ListView(
+            children: <Widget>[
+              Recarga(
+                title: 'Tuenti',
+                type: 'Servicios',
+                ammount: '190.0',
+                date: '17/10/2019',
+              ),
+              Recarga(
+                title: 'Tuenti',
+                type: 'Servicios',
+                ammount: '100.0',
+                date: '17/10/2019',
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget PagosTabPage() {
+    return Column(
+      children: <Widget>[
+        Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  TipoRecarga(
-                    title: 'SUBE',
-                    color: Colors.blue,
+                  Text(
+                    'Servicios',
+                    style: TextStyle(color: Colors.black54),
                   ),
-                  TipoRecarga(
-                    title: 'Claro',
-                    color: Colors.red,
-                  ),
-                  TipoRecarga(
-                    title: 'Movistar',
-                    color: Colors.green,
-                  ),
-                  TipoRecarga(
-                    title: 'Personal',
-                    color: Colors.lightBlue,
-                  ),
-                  TipoRecarga(
-                    title: 'Tuenti',
-                    color: Colors.blueAccent[800],
-                  ),
-                  TipoRecarga(
-                    title: 'Nextel',
-                    color: Colors.deepOrange,
-                  ),
-                  TipoRecarga(
-                    title: 'Directv',
-                    color: Colors.lightBlueAccent,
-                  ),
-                  TipoRecarga(
-                    title: 'Antina',
-                    color: Colors.green,
-                  ),
-                  TipoRecarga(
-                    title: 'GranDT',
-                    color: Colors.blue[700],
-                  ),
+                  Text('Ver todos',
+                      style: TextStyle(
+                          color: Colors.blue, fontWeight: FontWeight.w500))
                 ],
               ),
             ),
-          ),
-          Divider(
-            thickness: 0.8,
-            height: 30
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
-            child: Text('Últimas recargas', style: TextStyle(color: Colors.black54),),
-          ),
-          Expanded(
-            child: ListView(
-              children: <Widget>[
-                Recarga(
-                  title: 'Tuenti',
-                  type: 'Servicios',
-                  ammount: '190.0',
-                  date: '17/10/2019',
-                ),
-                Recarga(
-                  title: 'Tuenti',
-                  type: 'Servicios',
-                  ammount: '100.0',
-                  date: '17/10/2019',
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-      Container(color: Colors.green),
-    ]);
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Flexible(
+                    child: Column(
+                      children: <Widget>[
+                        Image(
+                            image: AssetImage('lib/assets/pesos-caja.png'),
+                            width: 50),
+                        Text(
+                          'Aguas',
+                          overflow: TextOverflow.clip,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Flexible(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image(
+                            image: AssetImage('lib/assets/pesos-caja.png'),
+                            width: 50),
+                        Text(
+                          'Ahorro y capitalizacion',
+                          overflow: TextOverflow.clip,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Flexible(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Image(
+                            image: AssetImage('lib/assets/pesos-caja.png'),
+                            width: 50),
+                        Text(
+                          'ARBA',
+                          overflow: TextOverflow.clip,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Flexible(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Image(
+                            image: AssetImage('lib/assets/pesos-caja.png'),
+                            width: 50),
+                        Text(
+                          'BBVA Convenios',
+                          overflow: TextOverflow.clip,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ],
+    );
   }
 }
 
@@ -256,35 +355,35 @@ class Recarga extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(title, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16)),
+                    Text(title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 16)),
                     Padding(
                       padding: const EdgeInsets.only(top: 2),
-                      child: Text(type, style: TextStyle(color: Colors.black54)),
+                      child:
+                          Text(type, style: TextStyle(color: Colors.black54)),
                     )
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                    Text('\$ $ammount ', style: TextStyle(fontSize: 16, color: Colors.black54)),
+                    Text('\$ $ammount ',
+                        style: TextStyle(fontSize: 16, color: Colors.black54)),
                     Padding(
                       padding: const EdgeInsets.only(top: 2),
-                      child: Text(date, style: TextStyle(color: Colors.black54)),
+                      child:
+                          Text(date, style: TextStyle(color: Colors.black54)),
                     )
                   ],
                 ),
               ],
-            )
-        ),
-        Divider(
-            thickness: 0.8,
-            height: 20
-        ),
+            )),
+        Divider(thickness: 0.8, height: 20),
       ],
     );
   }
 }
-
 
 class ShapesPainter extends CustomPainter {
   @override
@@ -313,5 +412,3 @@ class ShapesPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
-
-
