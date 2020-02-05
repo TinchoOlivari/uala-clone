@@ -1,16 +1,12 @@
-# uala_clone
+# Ualá clone
 
-A Uala clone Flutter application.
+Un clon desarrollado en Flutter de Ualá.
 
-## Getting Started
+## Imagenes
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Home](https://i.imgur.com/lpgyRAG.png?1)
+![Drawer](https://i.imgur.com/Nemim7O.png?1)
+![Transferencias](https://i.imgur.com/6MtBghQ.png?1)
+![Tarjeta](https://i.imgur.com/Qj7wICB.png?1)
+![Recarga](https://i.imgur.com/CZR5ZrF.png?1)
+![Pagos](https://i.imgur.com/K5JK2Hb.png?1)
