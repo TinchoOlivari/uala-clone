@@ -2,6 +2,10 @@
 
 Un clon desarrollado en Flutter de Ualá.
 
+## Video
+
+![Home](uala_clone.gif)
+
 ## Imagenes
 
 ![Home](https://i.imgur.com/lpgyRAG.png?1)

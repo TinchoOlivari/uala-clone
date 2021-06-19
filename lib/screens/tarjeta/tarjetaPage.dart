@@ -85,7 +85,9 @@ class _TarjetaPageState extends State<TarjetaPage> {
                     ),
                     Switch(
                       value: isSwitched,
-                      onChanged: (e) {},
+                      onChanged: (e) {
+                        isSwitched = !isSwitched;
+                      },
                     ),
                   ],
                 ),
@@ -242,8 +244,7 @@ class OpcionState extends State<Opcion> {
                     children: <Widget>[
                       Text(
                         widget.title,
-                        style: TextStyle(
-                            fontSize: 16),
+                        style: TextStyle(fontSize: 16),
                       ),
                       widget.descripcion == null
                           ? Container()

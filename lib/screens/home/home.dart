@@ -39,7 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: RefreshIndicator(
-        edgeDistance: 160,
         displacement: 10,
         key: refreshKey,
         onRefresh: refreshList,
@@ -344,7 +343,6 @@ class ShapesPainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
-
 class MyBehavior extends ScrollBehavior {
   @override
   Widget buildViewportChrome(
@@ -352,5 +350,3 @@ class MyBehavior extends ScrollBehavior {
     return child;
   }
 }
-
-
